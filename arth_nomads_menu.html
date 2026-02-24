@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arth Cafe Menu - The Nomads</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 10px; }
+.item { border-bottom: 1px solid #ddd; padding: 8px 0; }
+button { padding: 4px 8px; }
+.cart { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 2px solid #000; padding: 10px; }
+</style>
+</head>
+<body>
+
+<h2>Arth Cafe – Hop Inn Hostel</h2>
+<p><b>Order From:</b> The Nomads</p>
+
+<div class="item">🟢 Veg Maggie – ₹115 
+<button onclick="add('Veg Maggie')">+</button></div>
+
+<div class="item">🟡 Masala Omelette – ₹89 
+<button onclick="add('Masala Omelette')">+</button></div>
+
+<div class="item">🟢 Cold Coffee – ₹99 
+<button onclick="add('Cold Coffee')">+</button></div>
+
+<div class="cart">
+<button onclick="order()">Place Order on WhatsApp</button>
+</div>
+
+<script>
+let cart = {};
+function add(item){
+ cart[item] = (cart[item] || 0) + 1;
+ alert(item + " added");
+}
+
+function order(){
+ let msg = "Hi Arth cafe, order from Hop Inn hostel%0A%0AOrder From: The Nomads%0A";
+ for (let i in cart){
+   msg += i + " × " + cart[i] + "%0A";
+ }
+ window.open("https://wa.me/919560989778?text=" + msg);
+}
+</script>
+
+</body>
+</html>
