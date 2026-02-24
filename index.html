@@ -54,6 +54,7 @@ button {
 
 <h2>Arth Cafe – Hop Inn Hostel</h2>
 <p style="text-align:center;"><b>Order From:</b> The Nomads</p>
+
 <!-- BREAKFAST -->
 <details>
 <summary>Breakfast</summary>
@@ -70,7 +71,7 @@ button {
 <div class="item">🟡 Bread Omelette – ₹119 <button onclick="add('Bread Omelette')">+</button></div>
 </details>
 
-<!-- TEA & COFFEE -->
+<!-- TEA / COFFEE -->
 <details>
 <summary>Tea & Coffee</summary>
 <div class="item">🟢 Masala Tea – ₹39 <button onclick="add('Masala Tea')">+</button></div>
@@ -111,6 +112,7 @@ let cart = {};
 
 function add(item) {
   cart[item] = (cart[item] || 0) + 1;
+  alert(item + " added");
 }
 
 function placeOrder() {
