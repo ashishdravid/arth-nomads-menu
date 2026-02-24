@@ -54,3 +54,79 @@ button {
 
 <h2>Arth Cafe – Hop Inn Hostel</h2>
 <p style="text-align:center;"><b>Order From:</b> The Nomads</p>
+<!-- BREAKFAST -->
+<details>
+<summary>Breakfast</summary>
+<div class="item">🟢 Aloo Paratha – ₹95 <button onclick="add('Aloo Paratha')">+</button></div>
+<div class="item">🟢 Paneer Paratha – ₹115 <button onclick="add('Paneer Paratha')">+</button></div>
+<div class="item">🟢 Veg Maggie – ₹85 <button onclick="add('Veg Maggie')">+</button></div>
+</details>
+
+<!-- EGGS -->
+<details>
+<summary>Eggs</summary>
+<div class="item">🟡 Boiled Eggs – ₹99 <button onclick="add('Boiled Eggs')">+</button></div>
+<div class="item">🟡 Masala Omelette – ₹99 <button onclick="add('Masala Omelette')">+</button></div>
+<div class="item">🟡 Bread Omelette – ₹119 <button onclick="add('Bread Omelette')">+</button></div>
+</details>
+
+<!-- TEA & COFFEE -->
+<details>
+<summary>Tea & Coffee</summary>
+<div class="item">🟢 Masala Tea – ₹39 <button onclick="add('Masala Tea')">+</button></div>
+<div class="item">🟢 Americano – ₹99 <button onclick="add('Americano')">+</button></div>
+<div class="item">🟢 Cold Coffee – ₹119 <button onclick="add('Cold Coffee')">+</button></div>
+</details>
+
+<!-- CHINESE -->
+<details>
+<summary>Chinese Corner</summary>
+<div class="item">🟢 Veg Fried Rice – ₹165 <button onclick="add('Veg Fried Rice')">+</button></div>
+<div class="item">🟢 Hakka Noodles – ₹135 <button onclick="add('Hakka Noodles')">+</button></div>
+<div class="item">🟢 Chilly Paneer – ₹245 <button onclick="add('Chilly Paneer')">+</button></div>
+</details>
+
+<!-- MAIN COURSE -->
+<details>
+<summary>Main Course</summary>
+<div class="item">🟢 Paneer Butter Masala – ₹275 <button onclick="add('Paneer Butter Masala')">+</button></div>
+<div class="item">🟢 Dal Makhani – ₹219 <button onclick="add('Dal Makhani')">+</button></div>
+<div class="item">🟡 Egg Curry – ₹229 <button onclick="add('Egg Curry')">+</button></div>
+</details>
+
+<!-- DESSERTS -->
+<details>
+<summary>Desserts</summary>
+<div class="item">🟢 Gulab Jamun with Ice Cream – ₹145 <button onclick="add('Gulab Jamun with Ice Cream')">+</button></div>
+<div class="item">🟢 Donut – ₹79 <button onclick="add('Donut')">+</button></div>
+</details>
+
+<!-- CART -->
+<div class="cart">
+<button onclick="placeOrder()">Place Order on WhatsApp</button>
+</div>
+
+<script>
+let cart = {};
+
+function add(item) {
+  cart[item] = (cart[item] || 0) + 1;
+}
+
+function placeOrder() {
+  if (Object.keys(cart).length === 0) {
+    alert("Cart is empty");
+    return;
+  }
+
+  let msg = "Hi Arth cafe, order from Hop Inn hostel%0A%0AOrder From: The Nomads%0A%0A";
+  for (let item in cart) {
+    msg += item + " × " + cart[item] + "%0A";
+  }
+
+  window.open("https://wa.me/919560989778?text=" + msg);
+}
+</script>
+
+</body>
+</html>
